@@ -18,5 +18,9 @@ func main() {
 	defer handler.Close()
 
 	client := modbus.NewClient(handler)
-	client.ReadDiscreteInputs(15, 2)
+	for {
+		time.Sleep(1 * time.Minute)
+		client.ReadDiscreteInputs(15, 2)
+	}
+
 }
